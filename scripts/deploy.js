@@ -19,7 +19,7 @@ async function main() {
   const chainId = chainIdByName(network.name);
 
   const demoBaseUri = process.env.NFT_BASE_URI || "";
-  const demoMaxSupply = "1000000000000000000000000000000"; // 1,000,000,000,000,000,000,000,000,000,000  Pre-Mint What????
+  const demoMaxSupply = "1"; // 1,000,000,000,000,000,000,000,000,000,000  Pre-Mint What????
 
   console.log("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
   console.log("Infinite (ERC721i) Contract Deployment");
@@ -34,7 +34,7 @@ async function main() {
   //
   console.log("\n\n  Deploying...");
   console.log("~~~~~~~~~~~~~~~~~");
-  const constructorArgs = ["Infinite - ERC721i Demo", "iNFT", demoBaseUri, demoMaxSupply];
+  const constructorArgs = ["ERC721 Demo Token mainnet", "xNFT", demoBaseUri, demoMaxSupply];
   const DemoNFT = await ethers.getContractFactory("DemoNFT");
   const DemoNFTInstance = await DemoNFT.deploy(...constructorArgs);
   const demoNFT = await DemoNFTInstance.deployed();
@@ -52,26 +52,6 @@ async function main() {
   tx = await demoNFT.preMint();
   receipt = await tx.wait();
   console.log("     - Gas Cost: ", getActualTxGasCost({ deployTransaction: receipt }));
-
-  //
-  // Demo Transfers
-  //
-
-  console.log("\n  Transferring Pre-Mint TokenID '1'...");
-  tx = await demoNFT.transferFrom(owner, user1, '1');
-  receipt = await tx.wait();
-  console.log("     - Gas Cost for Token ID 1: ", getActualTxGasCost({ deployTransaction: receipt }));
-
-  console.log("\n  Transferring Pre-Mint TokenID '10'...");
-  tx = await demoNFT.transferFrom(owner, user1, '10');
-  receipt = await tx.wait();
-  console.log("     - Gas Cost for Token ID 10: ", getActualTxGasCost({ deployTransaction: receipt }));
-
-  console.log("\n  Transferring Pre-Mint TokenID '987654'...");
-  tx = await demoNFT.transferFrom(owner, user1, '987654');
-  receipt = await tx.wait();
-  console.log("     - Gas Cost for Token ID 987654: ", getActualTxGasCost({ deployTransaction: receipt }));
-
 
   console.log("\n\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
   console.log("\n  Contract Deployment Complete.");

@@ -34,6 +34,10 @@ const chainIdByName = (chainName) => {
       return 137;
     case "mumbai":
       return 80001;
+    case "etherone":
+      return 4949;
+    case "cemnet":
+      return 193;
     case "hardhat":
       return 31337;
     case "coverage":
@@ -59,6 +63,10 @@ const chainNameById = (chainId) => {
       return "Polygon";
     case 80001:
       return "Mumbai";
+    case 4949:
+      return "EtherOne";
+    case 193:
+      return "CEM.Network";  
     case 31337:
       return "Hardhat";
     default:

@@ -41,7 +41,7 @@ module.exports = {
       gasPrice: 1e9,
     },
     goerli: {
-      url: `https://eth-goerli.alchemyapi.io/v2/${process.env.ALCHEMY_GOERLI_APIKEY}`,
+      url: `https://eth-goerli.g.alchemy.com/v2/${process.env.ALCHEMY_GOERLI_APIKEY}`,
       gasPrice: 1e9,
       accounts: {
         mnemonic,
@@ -68,6 +68,26 @@ module.exports = {
       },
       chainId: 80001,
     },
+    etherone: {
+      url: `http://165.227.42.184:8545`,
+      gasPrice: 10e9,
+      accounts: {
+        mnemonic,
+        initialIndex: 0,
+        count: 10,
+      },
+      chainId: 4949,
+    },
+    cemnet: {
+      url: `https://cemchain.com/`,
+      gasPrice: 10e9,
+      accounts: {
+        mnemonic,
+        initialIndex: 0,
+        count: 10,
+      },
+      chainId: 193,
+    },
   },
   etherscan: {
     apiKey: {
@@ -77,7 +97,7 @@ module.exports = {
   },
   gasReporter: {
     enabled: process.env.REPORT_GAS !== undefined,
-    gasPrice: 1,
+    gasPrice: 0.01,
     currency: "USD",
   },
   abiExporter: {
