@@ -40,8 +40,8 @@ const chainIdByName = (chainName) => {
       return 193;
     case "hardhat":
       return 31337;
-    case "coverage":
-      return 31337;
+    case "localhost":
+      return -1;
     default:
       return 0;
   }
@@ -69,6 +69,8 @@ const chainNameById = (chainId) => {
       return "CEM.Network";  
     case 31337:
       return "Hardhat";
+    case -1:
+        return "Localhost";  
     default:
       return "Unknown";
   }
@@ -78,6 +80,8 @@ const chainTypeById = (chainId) => {
   switch (parseInt(chainId, 10)) {
     case 1:
     case 137:
+    case 193:
+    case 4949:
       return { isProd: true, isTestnet: false, isHardhat: false };
     case 3:
     case 4:
@@ -86,6 +90,7 @@ const chainTypeById = (chainId) => {
     case 80001:
       return { isProd: false, isTestnet: true, isHardhat: false };
     case 31337:
+    case -1:  
     default:
       return { isProd: false, isTestnet: false, isHardhat: true };
   }

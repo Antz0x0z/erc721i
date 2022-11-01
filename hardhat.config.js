@@ -105,7 +105,7 @@ module.exports = {
     runOnCompile: true,
     clear: true,
     flat: true,
-    only: ["DemoNFT", "ERC721i"],
+    only: ["ContractOnCEMNetwork", "ERC721i"],
   },
   namedAccounts: {
     owner: { default: 0 },

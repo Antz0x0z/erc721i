@@ -52,6 +52,8 @@
     "solidity-docgen": "^0.6.0-beta.18"
   },
   "dependencies": {
-    "dotenv": "^16.0.1"
+    "dotenv": "^16.0.1",
+    "files-from-path": "^0.2.6",
+    "nft.storage": "^7.0.0"
   }
 }
